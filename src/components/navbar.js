@@ -20,7 +20,7 @@ class AppNavbar extends Component{
         data.append('description', null);
     
         axios
-          .post('http://localhost:4000/api/upload', data)
+          .post('https://mern-image-gallery.herokuapp.com/api/upload', data)
           .then((res) => {
             console.log(res)
             if(!res.data.success){

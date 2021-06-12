@@ -10,7 +10,7 @@ class App extends Component {
 
   componentDidMount(){
     axios
-      .get('http://localhost:4000/api/files')
+      .get('https://mern-image-gallery.herokuapp.com/api/files')
       .then(res => {
           console.log(res)
           this.setState({
@@ -21,7 +21,7 @@ class App extends Component {
 
   onDelete = id => {
       axios
-        .delete(`http://localhost:4000/api/file/`+id)
+        .delete(`https://mern-image-gallery.herokuapp.com/api/file/`+id)
         .then(res => {
           if(res.data.success){
             window.location.reload()
@@ -43,14 +43,14 @@ class App extends Component {
               <h4>You have not uploaded any images</h4>
             ) : (
               this.state.images.map(img => {
-              let address = 'http://localhost:4000/api/'+img.address;
+              let address = 'https://mern-image-gallery.herokuapp.com/api/'+img.address;
             
               return(
                 <div key={img._id}>
                   <div className="col s6">
                     <div className="card">
                       <div className="card-image">
-                        <img src={address}/>
+                        <img src={address} alt="Image"/>
                         <a className="btn-floating halfway-fab waves-effect waves-light red">
                           
                         <button onClick={() => this.onDelete(img._id)} style={{
